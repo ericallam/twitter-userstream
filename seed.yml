@@ -1,0 +1,6 @@
+---
+  name: twitter-userstream
+  description: Twitter UserStream client library
+  tags: twitter userstream
+  version: 0.0.1
+  
