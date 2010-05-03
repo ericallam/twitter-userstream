@@ -1,5 +1,5 @@
 var sys = require('sys'),
-    UserStream = require('../lib/userstream').UserStream;
+    UserStream = require('../lib/twitter-userstream').UserStream;
     
 function inspect(obj, mes){
   sys.puts(mes + ": ");
