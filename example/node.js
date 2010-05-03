@@ -17,6 +17,8 @@ var listener = new UserStream({
   debug: false
 });
 
+listener.search('#twitter', '#node');
+
 listener
   .onFriends(function(friends){
     inspect(friends, "friends");
@@ -46,3 +48,9 @@ listener
     inspect(obj, "onAll");
   })
   .stream();
+
+// in 60 seconds, we will start a new stream only searching for #democrat.
+setTimeout(function(){
+  listener.search('#democrat');
+  listener.stream();
+}, 60000);
