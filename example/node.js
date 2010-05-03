@@ -2,7 +2,7 @@ var sys = require('sys'),
     UserStream = require('../lib/userstream').UserStream;
     
 function inspect(obj, mes){
-  sys.puts(mes = ": ");
+  sys.puts(mes + ": ");
   sys.puts(sys.inspect(obj));
 }
 
@@ -42,7 +42,7 @@ listener
   .onBlock(function(block){
     inspect(block, "block");
   })
-  .onMessage(function(message){
-    inspect(message, "message");
+  .onAll(function(obj){
+    inspect(obj, "onAll");
   })
   .stream();

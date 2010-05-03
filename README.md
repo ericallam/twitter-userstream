@@ -4,7 +4,7 @@ A node library for connecting to twitter userstreams.
 
 ## Installation
 
-Using the Kiwi packaging manager for node.js:
+Using the Kiwi packaging manager for node.js (NOTE: currently not working, but working on it):
 
     var kiwi = require('kiwi');
     var UserStream = kiwi.require('twitter-userstream').UserStream;
@@ -16,7 +16,7 @@ Using the Kiwi packaging manager for node.js:
     UserStream = require('path/to/userstream').UserStream;
     
     function inspect(obj, mes){
-      sys.puts(mes = ": ");
+      sys.puts(mes + ": ");
       sys.puts(sys.inspect(obj));
     }
 
@@ -56,11 +56,13 @@ Using the Kiwi packaging manager for node.js:
       .onBlock(function(block){
         inspect(block, "block");
       })
-      .onMessage(function(message){
-        inspect(message, "message");
+      .onAll(function(obj){
+        inspect(obj, "onAll");
       })
       .stream();
-
+      
+      // run the preceding program like this:
+      $ node example.js 'username:password'
 
 ## TODO
 
@@ -70,3 +72,7 @@ Using the Kiwi packaging manager for node.js:
 ## Copyright
 
 Copyright (c) 2010 rubymaverick. See LICENSE for details.
+
+## Credit:
+
+Code inspired by technoweenie's http://github.com/technoweenie/twitter-node
