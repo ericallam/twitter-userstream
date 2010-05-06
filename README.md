@@ -61,12 +61,17 @@ Using the Kiwi packaging manager for node.js (NOTE: currently not working, but w
       })
       .stream();
       
+      // in 60 seconds, we will start a new stream only searching for #democrat.
+      setTimeout(function(){
+        listener.search('#democrat');
+        listener.stream();
+      }, 60000);
+      
       // run the preceding program like this:
       $ node example.js 'username:password'
 
 ## TODO
 
-* Allow for search terms and search term changes
 * Follow the API guidelines for backing off on failed connections
 
 ## Copyright
